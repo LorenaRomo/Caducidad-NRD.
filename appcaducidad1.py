@@ -6,6 +6,14 @@ from dateutil.relativedelta import relativedelta
 # Configuración de página
 st.set_page_config(page_title="Auditoría de Caducidad NRD", layout="centered")
 
+# --- SIDEBAR DE IDENTIDAD ---
+with st.sidebar:
+    st.markdown("# ⚖️ RomoLegal")
+    st.markdown("---")
+    st.markdown("### **Developed by:**")
+    st.write("Lorena Romo")
+     st.write("---")
+
 def obtener_siguiente_habil(fecha, festivos_co):
     while fecha.weekday() >= 5 or fecha in festivos_co:
         fecha += timedelta(days=1)
