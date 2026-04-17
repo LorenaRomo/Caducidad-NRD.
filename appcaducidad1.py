@@ -12,7 +12,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### **Developed by:**")
     st.write("Lorena Romo")
-     st.write("---")
+    st.write("---") # 
 
 def obtener_siguiente_habil(fecha, festivos_co):
     while fecha.weekday() >= 5 or fecha in festivos_co:
