@@ -19,8 +19,8 @@ def obtener_siguiente_habil(fecha, festivos_co):
         fecha += timedelta(days=1)
     return fecha
 
-st.title("⚖️ Calculador de Caducidad (CPACA)")
-st.subheader("Análisis de Nulidad y Restablecimiento del Derecho")
+st.title("⏳Calculador de Caducidad (CPACA)")
+st.subheader("Análisis de caducidad de la acción de Nulidad y Restablecimiento del Derecho para acudir a la JCA.")
 
 # --- BLOQUE DE ENTRADA ---
 with st.container():
