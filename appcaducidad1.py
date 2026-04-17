@@ -81,13 +81,21 @@ if st.button("Realizar Análisis Jurídico"):
 
         vencimiento_final = obtener_siguiente_habil(vencimiento_final, festivos)
 
-        # --- RESULTADOS ---
+        # --- RESULTADOS ACTUALIZADOS ---
         st.divider()
-        if demanda > vencimiento_final:
-            st.error(f"### ESTADO: CADUCADA")
+        
+        # 1. Control de Procedibilidad (Prioritario)
+        if not usa_conc:
+            st.error("### ESTADO: RECHAZO POR PROCEDIBILIDAD")
+            st.warning("No presentó solicitud de conciliación: no puede acudir a la Jurisdicción Contencioso Administrativa (Art. 161 CPACA).")
+        
+        # 2. Control de Temporalidad (Caducidad)
+        elif demanda > vencimiento_final:
+            st.error("### ESTADO: CADUCADA")
         else:
-            st.success(f"### ESTADO: OPORTUNA")
+            st.success("### ESTADO: OPORTUNA")
             
+        # Siempre mostramos la sustentación para que el analista vea los términos
         st.info(f"""
         **Sustentación del Cálculo:**
         * **Inicio de conteo:** {f_inicio.strftime('%d/%m/%Y')}
